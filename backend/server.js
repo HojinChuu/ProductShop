@@ -15,10 +15,6 @@ const app = express();
 
 app.use(express.json()); // body parser
 
-app.get("/", (req, res) => {
-  res.send("API");
-});
-
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 
