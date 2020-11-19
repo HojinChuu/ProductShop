@@ -30,4 +30,4 @@ bootstrap.min.css
 products.js
 users.js
 
-uploads/*
+uploads/*node_modules
