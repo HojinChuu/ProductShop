@@ -22,13 +22,9 @@ import {
 
 export const createOrder = (order) => async (dispatch, getState) => {
   try {
-    dispatch({
-      type: ORDER_CREATE_REQUEST,
-    });
+    dispatch({ type: ORDER_CREATE_REQUEST });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const { userLogin: { userInfo } } = getState();
 
     const config = {
       headers: {
@@ -56,13 +52,9 @@ export const createOrder = (order) => async (dispatch, getState) => {
 
 export const getOrderDetails = (id) => async (dispatch, getState) => {
   try {
-    dispatch({
-      type: ORDER_DETAILS_REQUEST,
-    });
+    dispatch({ type: ORDER_DETAILS_REQUEST });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const { userLogin: { userInfo } } = getState();
 
     const config = {
       headers: {
@@ -87,14 +79,9 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
   }
 };
 
-export const payOrder = (orderId, paymentResult) => async (
-  dispatch,
-  getState
-) => {
+export const payOrder = (orderId, paymentResult) => async (dispatch, getState) => {
   try {
-    dispatch({
-      type: ORDER_PAY_REQUEST,
-    });
+    dispatch({ type: ORDER_PAY_REQUEST });
 
     const {
       userLogin: { userInfo },
@@ -107,11 +94,7 @@ export const payOrder = (orderId, paymentResult) => async (
       },
     };
 
-    const { data } = await axios.put(
-      `/api/orders/${orderId}/pay`,
-      paymentResult,
-      config
-    );
+    const { data } = await axios.put(`/api/orders/${orderId}/pay`, paymentResult, config);
 
     dispatch({
       type: ORDER_PAY_SUCCESS,
@@ -130,13 +113,9 @@ export const payOrder = (orderId, paymentResult) => async (
 
 export const deliverOrder = (order) => async (dispatch, getState) => {
   try {
-    dispatch({
-      type: ORDER_DELIVER_REQUEST,
-    });
+    dispatch({ type: ORDER_DELIVER_REQUEST });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const { userLogin: { userInfo } } = getState();
 
     const config = {
       headers: {
@@ -144,11 +123,7 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(
-      `/api/orders/${order._id}/deliver`,
-      {},
-      config
-    );
+    const { data } = await axios.put(`/api/orders/${order._id}/deliver`, {}, config);
 
     dispatch({
       type: ORDER_DELIVER_SUCCESS,
@@ -167,13 +142,9 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
 
 export const listMyOrders = () => async (dispatch, getState) => {
   try {
-    dispatch({
-      type: ORDER_LIST_MY_REQUEST,
-    });
+    dispatch({ type: ORDER_LIST_MY_REQUEST });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const { userLogin: { userInfo } } = getState();
 
     const config = {
       headers: {
@@ -200,13 +171,9 @@ export const listMyOrders = () => async (dispatch, getState) => {
 
 export const listOrders = () => async (dispatch, getState) => {
   try {
-    dispatch({
-      type: ORDER_LIST_REQUEST,
-    });
+    dispatch({ type: ORDER_LIST_REQUEST });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const { userLogin: { userInfo } } = getState();
 
     const config = {
       headers: {

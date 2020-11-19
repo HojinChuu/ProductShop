@@ -30,9 +30,7 @@ import { ORDER_LIST_MY_RESET } from "../constants/orderConstants";
 
 export const login = (email, password) => async (dispatch) => {
   try {
-    dispatch({
-      type: USER_LOGIN_REQUEST,
-    });
+    dispatch({ type: USER_LOGIN_REQUEST });
 
     const config = {
       headers: {
@@ -40,11 +38,7 @@ export const login = (email, password) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post(
-      "/api/users/login",
-      { email, password },
-      config
-    );
+    const { data } = await axios.post("/api/users/login", { email, password }, config);
 
     dispatch({
       type: USER_LOGIN_SUCCESS,
@@ -73,9 +67,7 @@ export const logout = () => (dispatch) => {
 
 export const register = (name, email, password) => async (dispatch) => {
   try {
-    dispatch({
-      type: USER_REGISTER_REQUEST,
-    });
+    dispatch({ type: USER_REGISTER_REQUEST });
 
     const config = {
       headers: {
@@ -83,11 +75,7 @@ export const register = (name, email, password) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post(
-      "/api/users",
-      { name, email, password },
-      config
-    );
+    const { data } = await axios.post("/api/users", { name, email, password }, config);
 
     dispatch({
       type: USER_REGISTER_SUCCESS,
@@ -113,13 +101,9 @@ export const register = (name, email, password) => async (dispatch) => {
 
 export const getUserDetails = (id) => async (dispatch, getState) => {
   try {
-    dispatch({
-      type: USER_DETAILS_REQUEST,
-    });
+    dispatch({ type: USER_DETAILS_REQUEST });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const { userLogin: { userInfo } } = getState();
 
     const config = {
       headers: {
@@ -147,13 +131,9 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
 
 export const updateUserProfile = (user) => async (dispatch, getState) => {
   try {
-    dispatch({
-      type: USER_UPDATE_PROFILE_REQUEST,
-    });
+    dispatch({ type: USER_UPDATE_PROFILE_REQUEST });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const { userLogin: { userInfo } } = getState();
 
     const config = {
       headers: {
@@ -181,13 +161,9 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
 
 export const listUsers = () => async (dispatch, getState) => {
   try {
-    dispatch({
-      type: USER_LIST_REQUEST,
-    });
+    dispatch({ type: USER_LIST_REQUEST });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const { userLogin: { userInfo } } = getState();
 
     const config = {
       headers: {
@@ -214,13 +190,9 @@ export const listUsers = () => async (dispatch, getState) => {
 
 export const deleteUsers = (id) => async (dispatch, getState) => {
   try {
-    dispatch({
-      type: USER_DELETE_REQUEST,
-    });
+    dispatch({ type: USER_DELETE_REQUEST });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const { userLogin: { userInfo } } = getState();
 
     const config = {
       headers: {
@@ -229,10 +201,7 @@ export const deleteUsers = (id) => async (dispatch, getState) => {
     };
 
     await axios.delete(`/api/users/${id}`, config);
-
-    dispatch({
-      type: USER_DELETE_SUCCESS,
-    });
+    dispatch({ type: USER_DELETE_SUCCESS });
   } catch (error) {
     dispatch({
       type: USER_DELETE_FAIL,
@@ -246,13 +215,9 @@ export const deleteUsers = (id) => async (dispatch, getState) => {
 
 export const updateUsers = (user) => async (dispatch, getState) => {
   try {
-    dispatch({
-      type: USER_UPDATE_REQUEST,
-    });
+    dispatch({ type: USER_UPDATE_REQUEST });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const { userLogin: { userInfo } } = getState();
 
     const config = {
       headers: {
@@ -263,9 +228,7 @@ export const updateUsers = (user) => async (dispatch, getState) => {
 
     const { data } = await axios.put(`/api/users/${user._id}`, user, config);
 
-    dispatch({
-      type: USER_UPDATE_SUCCESS,
-    });
+    dispatch({ type: USER_UPDATE_SUCCESS });
 
     dispatch({
       type: USER_DETAILS_SUCCESS,

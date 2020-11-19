@@ -31,7 +31,6 @@ const addOrderItems = asyncHandler(async (req, res) => {
     });
 
     const createdOrder = await order.save();
-
     res.status(201).json(createdOrder);
   }
 });
@@ -41,10 +40,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
 // @access Private
 const getOrderById = asyncHandler(async (req, res) => {
   // populate 객체 따로 필요한것들만 빼서 return ( user : name, email )
-  const order = await Order.findById(req.params.id).populate(
-    "user",
-    "name email"
-  );
+  const order = await Order.findById(req.params.id).populate("user", "name email");
 
   if (order) {
     res.json(order);

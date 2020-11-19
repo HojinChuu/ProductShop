@@ -23,11 +23,9 @@ export const cartReducer = (
         };
       } else {
         return {
-          // ...state,
           cartItems: [...state.cartItems, item],
         };
       }
-
     case CART_REMOVE_ITEM:
       return {
         ...state,
@@ -35,13 +33,11 @@ export const cartReducer = (
           (item) => item.product !== action.payload
         ),
       };
-
     case CART_SAVE_SHIPPING_ADDRESS:
       return {
         ...state,
         shippingAddress: action.payload,
       };
-
     case CART_SAVE_PAYMENT_METHOD:
       return {
         ...state,
