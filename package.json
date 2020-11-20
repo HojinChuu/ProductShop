@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "shopping cart app",
   "engines": {
-    "node": "12.16.2"
+    "node": "15.2.1",
+    "npm": "7.0.10"
   },
   "main": "server.js",
   "type": "module",
